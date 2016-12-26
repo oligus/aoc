@@ -1,6 +1,6 @@
 <?php
 
-namespace AOC\Aoc2015\Jan;
+namespace AOC\Aoc2015\Day1;
 
 use AOC\Common\AbstractAoc;
 

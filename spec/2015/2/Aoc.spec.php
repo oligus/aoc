@@ -2,7 +2,7 @@
 
 require_once 'src/2015/2/Aoc.php';
 
-use AOC\Aoc2015\Feb\Aoc;
+use AOC\Aoc2015\Day2\Aoc;
 
 describe('Advent of code', function() {
     $aoc = new Aoc();
