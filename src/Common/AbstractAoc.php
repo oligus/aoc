@@ -2,7 +2,6 @@
 
 namespace AOC\Common;
 
-
 abstract class AbstractAoc
 {
     public abstract function run();
@@ -11,6 +10,12 @@ abstract class AbstractAoc
     {
         $file = $path . '/input.txt';
         return file_get_contents($file);
+    }
+
+    protected function readInputFile($path)
+    {
+        $file = $path . '/input.txt';
+        return file($file);
     }
 
     protected function readInputLines($path, \Closure $p)
