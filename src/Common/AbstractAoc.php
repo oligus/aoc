@@ -15,7 +15,13 @@ abstract class AbstractAoc
     protected function readInputFile($path)
     {
         $file = $path . '/input.txt';
-        return file($file);
+        $result = file($file);
+
+        $result = array_map(function($item) {
+            return trim($item);
+        }, $result);
+
+        return $result;
     }
 
     protected function readInputLines($path, \Closure $p)
