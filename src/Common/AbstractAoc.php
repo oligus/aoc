@@ -17,9 +17,11 @@ abstract class AbstractAoc
         $file = $path . '/input.txt';
         $result = file($file);
 
-        $result = array_map(function($item) {
-            return trim($item);
-        }, $result);
+        if(is_array($result)) {
+            $result = array_map(function($item) {
+                return trim($item);
+            }, $result);
+        }
 
         return $result;
     }
