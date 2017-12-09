@@ -8,6 +8,26 @@ use AOC\Common\AbstractAoc;
 
 class Aoc extends AbstractAoc
 {
+    public function calculateCompact($data)
+    {
+        $g = $c = false;
+        $m = $s = 0;
+
+        for ($i=0;$i<strlen($data);$i++) {
+            if($c) { $c = !$c; continue; }
+
+            switch($data[$i]) {
+                case '!': $c = !$c ? !$c : $c; break;
+                case '>': $g = !$g; break;
+                case '<': $g = true; break;
+                case '{': $m = !$g ? $m+1 : $m; break;
+                case '}': if(!$g) { $s = $s + $m; $m--; } break;
+            }
+        }
+
+        return $s;
+    }
+
     public function calculate($data)
     {
         $isGarbage = false;

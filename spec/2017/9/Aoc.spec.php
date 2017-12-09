@@ -27,6 +27,18 @@ describe('Advent of code', function() {
         expect($aoc->calculate('{{<a!>},{<a!>},{<a!>},{<ab>}}'))->toEql(3);
     });
 
+    it('Test calculate', function() use ($aoc) {
+        expect($aoc->calculateCompact('<>'))->toEql(0);
+        expect($aoc->calculateCompact('{}'))->toEql(1);
+        expect($aoc->calculateCompact('{{{}}}'))->toEql(6);
+        expect($aoc->calculateCompact('{{},{}}'))->toEql(5);
+        expect($aoc->calculateCompact('{{{},{},{{}}}}'))->toEql(16);
+        expect($aoc->calculateCompact('{<a>,<a>,<a>,<a>}'))->toEql(1);
+        expect($aoc->calculateCompact('{{<ab>},{<ab>},{<ab>},{<ab>}}'))->toEql(9);
+        expect($aoc->calculateCompact('{{<!!>},{<!!>},{<!!>},{<!!>}}'))->toEql(9);
+        expect($aoc->calculateCompact('{{<a!>},{<a!>},{<a!>},{<ab>}}'))->toEql(3);
+    });
+
     it('Test count', function() use ($aoc) {
         expect($aoc->count('<>'))->toEql(0);
         expect($aoc->count('<random characters>'))->toEql(17);
