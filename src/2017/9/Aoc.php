@@ -27,22 +27,22 @@ class Aoc extends AbstractAoc
                 continue;
             }
 
-            if ($data[$i] === '>' && !$cancelNext && $isGarbage) {
+            if ($data[$i] === '>' && $isGarbage) {
                 $isGarbage = false;
                 continue;
             }
 
-            if ($data[$i] === '<' && !$cancelNext && !$isGarbage) {
+            if ($data[$i] === '<' && !$isGarbage) {
                 $isGarbage = true;
                 continue;
             }
 
-            if ($data[$i] === '{' && !$cancelNext && !$isGarbage) {
+            if ($data[$i] === '{' && !$isGarbage) {
                 $max++;
                 continue;
             }
 
-            if ($data[$i] === '}' && !$cancelNext && !$isGarbage) {
+            if ($data[$i] === '}' && !$isGarbage) {
                 $score = $score + $max;
                 $max--;
                 continue;
@@ -70,12 +70,12 @@ class Aoc extends AbstractAoc
                 continue;
             }
 
-            if ($data[$i] === '>' && !$cancelNext && $isGarbage) {
+            if ($data[$i] === '>' && $isGarbage) {
                 $isGarbage = false;
                 continue;
             }
 
-            if ($data[$i] === '<' && !$cancelNext && !$isGarbage) {
+            if ($data[$i] === '<' && !$isGarbage) {
                 $isGarbage = true;
                 continue;
             }
