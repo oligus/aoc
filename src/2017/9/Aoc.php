@@ -17,7 +17,7 @@ class Aoc extends AbstractAoc
             if($c) { $c = !$c; continue; }
 
             switch($data[$i]) {
-                case '!': $c = !$c ? !$c : $c; break;
+                case '!': $c = !$c; break;
                 case '>': $g = !$g; break;
                 case '<': $g = true; break;
                 case '{': $m = !$g ? $m+1 : $m; break;
