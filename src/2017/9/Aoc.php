@@ -8,8 +8,94 @@ use AOC\Common\AbstractAoc;
 
 class Aoc extends AbstractAoc
 {
+    public function calculate($data)
+    {
+        $isGarbage = false;
+        $cancelNext = false;
+        $max = 0;
+        $score = 0;
+
+        for ($i = 0; $i < strlen($data); $i++) {
+
+            if($cancelNext) {
+                $cancelNext = !$cancelNext;
+                continue;
+            }
+
+            if ($data[$i] === '!' && !$cancelNext) {
+                $cancelNext = !$cancelNext;
+                continue;
+            }
+
+            if ($data[$i] === '>' && !$cancelNext && $isGarbage) {
+                $isGarbage = false;
+                continue;
+            }
+
+            if ($data[$i] === '<' && !$cancelNext && !$isGarbage) {
+                $isGarbage = true;
+                continue;
+            }
+
+            if ($data[$i] === '{' && !$cancelNext && !$isGarbage) {
+                $max++;
+                continue;
+            }
+
+            if ($data[$i] === '}' && !$cancelNext && !$isGarbage) {
+                $score = $score + $max;
+                $max--;
+                continue;
+            }
+        }
+
+        return $score;
+    }
+
+    public function count($data)
+    {
+        $isGarbage = false;
+        $cancelNext = false;
+        $count = 0;
+
+        for ($i = 0; $i < strlen($data); $i++) {
+
+            if($cancelNext) {
+                $cancelNext = !$cancelNext;
+                continue;
+            }
+
+            if ($data[$i] === '!' && !$cancelNext) {
+                $cancelNext = !$cancelNext;
+                continue;
+            }
+
+            if ($data[$i] === '>' && !$cancelNext && $isGarbage) {
+                $isGarbage = false;
+                continue;
+            }
+
+            if ($data[$i] === '<' && !$cancelNext && !$isGarbage) {
+                $isGarbage = true;
+                continue;
+            }
+
+            if($isGarbage) {
+                $count++;
+            }
+        }
+
+        return $count;
+    }
+
     public function run($part = 1)
     {
-        return "day9";
+        $input = $this->readInput(dirname(__FILE__));
+
+        if($part === 1) {
+            return $this->calculate($input);
+        } else {
+            return $this->count($input);
+        }
     }
 }
