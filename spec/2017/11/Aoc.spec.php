@@ -15,11 +15,6 @@ describe('Advent of code', function() {
         expect($aoc->run(2))->toEql(1603);
     });
 
-
-    it('Test step', function() use ($aoc) {
-        expect($aoc->step('ne'))->toEql([1, -1, 0]);
-    });
-
     it('Test process', function() use ($aoc) {
         expect($aoc->process(['ne', 'ne', 'ne']))->toEql(3);
         expect($aoc->process(['ne','ne','sw','sw']))->toEql(0);
